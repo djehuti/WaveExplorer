@@ -1,0 +1,305 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F202131115AF88DA00354C69 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F202131015AF88DA00354C69 /* Cocoa.framework */; };
+		F202131B15AF88DA00354C69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F202131915AF88DA00354C69 /* InfoPlist.strings */; };
+		F202131D15AF88DA00354C69 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F202131C15AF88DA00354C69 /* main.m */; };
+		F202132115AF88DA00354C69 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F202131F15AF88DA00354C69 /* Credits.rtf */; };
+		F202132415AF88DA00354C69 /* WaveExplorerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F202132315AF88DA00354C69 /* WaveExplorerDocument.m */; };
+		F202132715AF88DA00354C69 /* WaveExplorerDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = F202132515AF88DA00354C69 /* WaveExplorerDocument.xib */; };
+		F202132A15AF88DA00354C69 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F202132815AF88DA00354C69 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F202130C15AF88DA00354C69 /* Wave Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wave Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F202131015AF88DA00354C69 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		F202131315AF88DA00354C69 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		F202131415AF88DA00354C69 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F202131515AF88DA00354C69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F202131815AF88DA00354C69 /* Wave Explorer-Info.plist */ = {isa = PBXFileReference; path = "Wave Explorer-Info.plist"; sourceTree = "<group>"; };
+		F202131A15AF88DA00354C69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F202131C15AF88DA00354C69 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F202131E15AF88DA00354C69 /* Wave Explorer-Prefix.pch */ = {isa = PBXFileReference; path = "Wave Explorer-Prefix.pch"; sourceTree = "<group>"; };
+		F202132015AF88DA00354C69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		F202132215AF88DA00354C69 /* WaveExplorerDocument.h */ = {isa = PBXFileReference; path = WaveExplorerDocument.h; sourceTree = "<group>"; };
+		F202132315AF88DA00354C69 /* WaveExplorerDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaveExplorerDocument.m; sourceTree = "<group>"; };
+		F202132615AF88DA00354C69 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WaveExplorerDocument.xib; sourceTree = "<group>"; };
+		F202132915AF88DA00354C69 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F202130915AF88DA00354C69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F202131115AF88DA00354C69 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F202130115AF88DA00354C69 = {
+			isa = PBXGroup;
+			children = (
+				F202131615AF88DA00354C69 /* Wave Explorer */,
+				F202130F15AF88DA00354C69 /* Frameworks */,
+				F202130D15AF88DA00354C69 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F202130D15AF88DA00354C69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F202130C15AF88DA00354C69 /* Wave Explorer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F202130F15AF88DA00354C69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F202131015AF88DA00354C69 /* Cocoa.framework */,
+				F202131215AF88DA00354C69 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F202131215AF88DA00354C69 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F202131315AF88DA00354C69 /* AppKit.framework */,
+				F202131415AF88DA00354C69 /* CoreData.framework */,
+				F202131515AF88DA00354C69 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		F202131615AF88DA00354C69 /* Wave Explorer */ = {
+			isa = PBXGroup;
+			children = (
+				F202132215AF88DA00354C69 /* WaveExplorerDocument.h */,
+				F202132315AF88DA00354C69 /* WaveExplorerDocument.m */,
+				F202132515AF88DA00354C69 /* WaveExplorerDocument.xib */,
+				F202132815AF88DA00354C69 /* MainMenu.xib */,
+				F202131715AF88DA00354C69 /* Supporting Files */,
+			);
+			path = "Wave Explorer";
+			sourceTree = "<group>";
+		};
+		F202131715AF88DA00354C69 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F202131815AF88DA00354C69 /* Wave Explorer-Info.plist */,
+				F202131915AF88DA00354C69 /* InfoPlist.strings */,
+				F202131C15AF88DA00354C69 /* main.m */,
+				F202131E15AF88DA00354C69 /* Wave Explorer-Prefix.pch */,
+				F202131F15AF88DA00354C69 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F202130B15AF88DA00354C69 /* Wave Explorer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F202132D15AF88DA00354C69 /* Build configuration list for PBXNativeTarget "Wave Explorer" */;
+			buildPhases = (
+				F202130815AF88DA00354C69 /* Sources */,
+				F202130915AF88DA00354C69 /* Frameworks */,
+				F202130A15AF88DA00354C69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Wave Explorer";
+			productName = "Wave Explorer";
+			productReference = F202130C15AF88DA00354C69 /* Wave Explorer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F202130315AF88DA00354C69 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Apple Inc.";
+			};
+			buildConfigurationList = F202130615AF88DA00354C69 /* Build configuration list for PBXProject "Wave Explorer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F202130115AF88DA00354C69;
+			productRefGroup = F202130D15AF88DA00354C69 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F202130B15AF88DA00354C69 /* Wave Explorer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F202130A15AF88DA00354C69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F202131B15AF88DA00354C69 /* InfoPlist.strings in Resources */,
+				F202132115AF88DA00354C69 /* Credits.rtf in Resources */,
+				F202132715AF88DA00354C69 /* WaveExplorerDocument.xib in Resources */,
+				F202132A15AF88DA00354C69 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F202130815AF88DA00354C69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F202131D15AF88DA00354C69 /* main.m in Sources */,
+				F202132415AF88DA00354C69 /* WaveExplorerDocument.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F202131915AF88DA00354C69 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F202131A15AF88DA00354C69 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F202131F15AF88DA00354C69 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F202132015AF88DA00354C69 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		F202132515AF88DA00354C69 /* WaveExplorerDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F202132615AF88DA00354C69 /* en */,
+			);
+			name = WaveExplorerDocument.xib;
+			sourceTree = "<group>";
+		};
+		F202132815AF88DA00354C69 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F202132915AF88DA00354C69 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F202132B15AF88DA00354C69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F202132C15AF88DA00354C69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F202132E15AF88DA00354C69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Wave Explorer/Wave Explorer-Prefix.pch";
+				INFOPLIST_FILE = "Wave Explorer/Wave Explorer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F202132F15AF88DA00354C69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Wave Explorer/Wave Explorer-Prefix.pch";
+				INFOPLIST_FILE = "Wave Explorer/Wave Explorer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F202130615AF88DA00354C69 /* Build configuration list for PBXProject "Wave Explorer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F202132B15AF88DA00354C69 /* Debug */,
+				F202132C15AF88DA00354C69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F202132D15AF88DA00354C69 /* Build configuration list for PBXNativeTarget "Wave Explorer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F202132E15AF88DA00354C69 /* Debug */,
+				F202132F15AF88DA00354C69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F202130315AF88DA00354C69 /* Project object */;
+}
