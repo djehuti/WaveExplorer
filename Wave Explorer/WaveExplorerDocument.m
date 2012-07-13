@@ -3,64 +3,97 @@
 //  Wave Explorer
 //
 //  Created by Ben Cox on 7/12/12.
-//  Copyright 2012 Apple Inc. All rights reserved.
+//  Copyright 2012 Ben Cox. All rights reserved.
 //
 
+
 #import "WaveExplorerDocument.h"
+#import "WaveExplorerChunk.h"
+
+
+@interface WaveExplorerDocument ()
+{
+    WaveExplorerChunk* mRiffChunk;
+}
+@end
+
 
 @implementation WaveExplorerDocument
 
-- (id)init
++ (void) initialize
 {
-    self = [super init];
-    if (self) {
-    // Add your subclass-specific initialization here.
-    // If an error occurs here, send a [self release] message and return nil.
+    [WaveExplorerChunk registerChunkClasses];
+}
+
+- (void) dealloc
+{
+    [mRiffChunk release];
+    mRiffChunk = nil;
+    [super dealloc];
+}
+
+- (NSString*) windowNibName
+{
+    // Override returning the nib file name of the document
+    // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
+    return @"WaveExplorerDocument";
+}
+
+- (NSData*) dataOfType:(NSString*)typeName error:(NSError**)outError
+{
+    if (outError) {
+        *outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
     }
-    return self;
+    return nil;
 }
 
-- (NSString *)windowNibName
+- (BOOL) readFromData:(NSData*)data ofType:(NSString*)typeName error:(NSError**)outError
 {
-  // Override returning the nib file name of the document
-  // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
-  return @"WaveExplorerDocument";
+    BOOL result = NO;
+    [mRiffChunk release];
+    mRiffChunk = nil;
+    NSArray* chunks = [[WaveExplorerChunk class] processChunksInData:data];
+    if ([chunks count] == 1) {
+        WaveExplorerChunk* firstChunk = [chunks objectAtIndex:0];
+        if ([firstChunk.chunkID isEqualToString:@"RIFF"]) {
+            mRiffChunk = [firstChunk retain];
+            result = YES;
+        }
+    }
+    return result;
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController *)aController
+#pragma mark - NSOutlineViewDataSource
+
+- (NSInteger) outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item
 {
-  [super windowControllerDidLoadNib:aController];
-  // Add any code here that needs to be executed once the windowController has loaded the document's window.
+    return (item == nil) ? 1 : (NSInteger)[(WaveExplorerChunk*)item countOfSubchunks];
 }
 
-- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
+- (BOOL) outlineView:(NSOutlineView*)outlineView isItemExpandable:(id)item
 {
-  /*
-   Insert code here to write your document to data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning nil.
-  You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-  */
-  if (outError) {
-      *outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
-  }
-  return nil;
+    return (item == nil) ? YES : ([(WaveExplorerChunk*)item countOfSubchunks] > 0);
 }
 
-- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
+- (id) outlineView:(NSOutlineView*)outlineView child:(NSInteger)index ofItem:(id)item
 {
-  /*
-  Insert code here to read your document from the given data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning NO.
-  You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead.
-  If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
-  */
-  if (outError) {
-      *outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
-  }
-  return YES;
+    return (item == nil) ? mRiffChunk : [(WaveExplorerChunk*)item objectInSubchunksAtIndex:(NSUInteger)index];
 }
 
-+ (BOOL)autosavesInPlace
+- (id) outlineView:(NSOutlineView*)outlineView objectValueForTableColumn:(NSTableColumn*)tableColumn byItem:(id)item
 {
-    return YES;
+    if (item == nil) item = mRiffChunk;
+    id result = nil;
+    if ([[tableColumn identifier] isEqualToString:@"Type"]) {
+        result = [(WaveExplorerChunk*)item chunkID];
+    }
+    else if ([[tableColumn identifier] isEqualToString:@"Size"]) {
+        result = [NSNumber numberWithUnsignedInteger:[(WaveExplorerChunk*)item chunkDataSize]];
+    }
+    else if ([[tableColumn identifier] isEqualToString:@"More"]) {
+        result = [(WaveExplorerChunk*)item moreInfo];
+    }
+    return result;
 }
 
 @end
