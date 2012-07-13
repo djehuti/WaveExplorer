@@ -197,7 +197,7 @@
 		F202130315AF88DA00354C69 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				ORGANIZATIONNAME = "Apple Inc.";
+				ORGANIZATIONNAME = "Ben Cox";
 			};
 			buildConfigurationList = F202130615AF88DA00354C69 /* Build configuration list for PBXProject "Wave Explorer" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -368,6 +368,7 @@
 				F202132F15AF88DA00354C69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
