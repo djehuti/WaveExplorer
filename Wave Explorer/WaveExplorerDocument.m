@@ -9,6 +9,7 @@
 
 #import "WaveExplorerDocument.h"
 #import "WaveExplorerChunk.h"
+#import "WaveExplorerDocumentWindowController.h"
 
 
 @interface WaveExplorerDocument ()
@@ -19,6 +20,8 @@
 
 
 @implementation WaveExplorerDocument
+
+@synthesize riffChunk = mRiffChunk;
 
 + (void) initialize
 {
@@ -34,11 +37,11 @@
     [super dealloc];
 }
 
-- (NSString*) windowNibName
+- (void) makeWindowControllers
 {
-    // Override returning the nib file name of the document
-    // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
-    return @"WaveExplorerDocument";
+    WaveExplorerDocumentWindowController* controller;
+    controller = [[[WaveExplorerDocumentWindowController alloc] initWithWindowNibName:@"WaveExplorerDocument"] autorelease];
+    [self addWindowController:controller];
 }
 
 - (NSData*) dataOfType:(NSString*)typeName error:(NSError**)outError
@@ -61,39 +64,6 @@
             mRiffChunk = [firstChunk retain];
             result = YES;
         }
-    }
-    return result;
-}
-
-#pragma mark - NSOutlineViewDataSource
-
-- (NSInteger) outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item
-{
-    return (item == nil) ? 1 : (NSInteger)[(WaveExplorerChunk*)item countOfSubchunks];
-}
-
-- (BOOL) outlineView:(NSOutlineView*)outlineView isItemExpandable:(id)item
-{
-    return (item == nil) ? YES : ([(WaveExplorerChunk*)item countOfSubchunks] > 0);
-}
-
-- (id) outlineView:(NSOutlineView*)outlineView child:(NSInteger)index ofItem:(id)item
-{
-    return (item == nil) ? mRiffChunk : [(WaveExplorerChunk*)item objectInSubchunksAtIndex:(NSUInteger)index];
-}
-
-- (id) outlineView:(NSOutlineView*)outlineView objectValueForTableColumn:(NSTableColumn*)tableColumn byItem:(id)item
-{
-    if (item == nil) item = mRiffChunk;
-    id result = nil;
-    if ([[tableColumn identifier] isEqualToString:@"Type"]) {
-        result = [(WaveExplorerChunk*)item chunkID];
-    }
-    else if ([[tableColumn identifier] isEqualToString:@"Size"]) {
-        result = [NSNumber numberWithUnsignedInteger:[(WaveExplorerChunk*)item chunkDataSize]];
-    }
-    else if ([[tableColumn identifier] isEqualToString:@"More"]) {
-        result = [(WaveExplorerChunk*)item moreInfo];
     }
     return result;
 }

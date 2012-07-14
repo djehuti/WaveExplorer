@@ -10,6 +10,11 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface WaveExplorerDocument : NSDocument <NSOutlineViewDataSource>
+@class WaveExplorerChunk;
+
+
+@interface WaveExplorerDocument : NSDocument
+
+@property (nonatomic, readwrite, retain) WaveExplorerChunk* riffChunk;
 
 @end
