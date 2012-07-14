@@ -168,8 +168,17 @@ static dispatch_once_t s_registeredChunkOnce;
     WaveExplorerChunk* result = nil;
     NSString* chunkType = [self p_chunkTypeFromData:data];
     if (chunkType) {
-        Class chunkClass = (Class)[s_registeredChunkClasses objectForKey:chunkType];
-        if (chunkClass == nil) {
+        Class chunkClass = Nil;
+        NSArray* classesForType = [s_registeredChunkClasses objectForKey:chunkType];
+        if (classesForType) {
+            for (Class candidateClass in classesForType) {
+                if ([candidateClass canHandleChunkWithData:data]) {
+                    chunkClass = candidateClass;
+                    break;
+                }
+            }
+        }
+        if (chunkClass == Nil) {
             chunkClass = [WaveExplorerUnknownChunk class];
         }
         result = [[[chunkClass alloc] initWithData:data] autorelease];
@@ -180,23 +189,53 @@ static dispatch_once_t s_registeredChunkOnce;
 + (void) registerChunkClasses
 {
     NSLog(@"Loading chunk classes...");
+    NSUInteger chunkTypeCount = 0;
     NSUInteger chunkClassCount = 0;
     NSUInteger chunkClassOK = 0;
     NSString* dictPath = [[NSBundle mainBundle] pathForResource:@"WaveExplorerChunkClasses" ofType:@"plist"];
     NSDictionary* chunkDict = [NSDictionary dictionaryWithContentsOfFile:dictPath];
-    for (NSString* chunkType in [chunkDict allKeys]) {
-        ++chunkClassCount;
-        NSString* chunkClassName = (NSString*)[chunkDict objectForKey:chunkType];
-        Class chunkClass = NSClassFromString(chunkClassName);
-        if (chunkClass) {
-            [self p_registerChunkClass:chunkClass forType:chunkType];
-            NSLog(@"Registered class '%@' for chunk type '%@'.", chunkClassName, chunkType);
-            ++chunkClassOK;
-        } else {
-            NSLog(@"Failed to load class '%@' for chunk type '%@'.", chunkClassName, chunkType);
+    for (id<NSObject> chunkTypeKey in [chunkDict allKeys]) {
+        if (![chunkTypeKey isKindOfClass:[NSString class]]) {
+            NSLog(@"Bad key %@ in class dictionary", chunkTypeKey);
+            continue;
+        }
+        NSString* chunkType = (NSString*)chunkTypeKey;
+        ++chunkTypeCount;
+        id<NSObject> chunkMapObject = [chunkDict objectForKey:chunkTypeKey];
+        NSArray* chunkClasses = nil;
+        if ([chunkMapObject isKindOfClass:[NSArray class]]) {
+            chunkClasses = (NSArray*)chunkMapObject;
+        }
+        else if ([chunkMapObject isKindOfClass:[NSString class]]) {
+            chunkClasses = [NSArray arrayWithObject:chunkMapObject];
+        }
+        else {
+            NSLog(@"Bad object %@ in class dictionary for chunk type '%@'", chunkMapObject, chunkType);
+            continue;
+        }
+        for (id<NSObject> chunkClassObject in chunkClasses) {
+            if (![chunkClassObject isKindOfClass:[NSString class]]) {
+                NSLog(@"Bad object %@ in class name list for chunk type '%@'", chunkClassObject, chunkType);
+                continue;
+            }
+            ++chunkClassCount;
+            NSString* chunkClassName = (NSString*)[chunkDict objectForKey:chunkType];
+            Class chunkClass = NSClassFromString(chunkClassName);
+            if (chunkClass) {
+                [self p_registerChunkClass:chunkClass forType:chunkType];
+                NSLog(@"Registered class '%@' for chunk type '%@'.", chunkClassName, chunkType);
+                ++chunkClassOK;
+            } else {
+                NSLog(@"Failed to load class '%@' for chunk type '%@'.", chunkClassName, chunkType);
+            }
         }
     }
-    NSLog(@"Registered %lu chunk classes (of %lu attempted).", chunkClassOK, chunkClassCount);
+    NSLog(@"Registered %lu chunk classes (of %lu attempted) for %lu chunk types.", chunkClassOK, chunkClassCount, chunkTypeCount);
+}
+
++ (BOOL) canHandleChunkWithData:(NSData*)data
+{
+    return YES;
 }
 
 #pragma mark - Utility
@@ -314,7 +353,16 @@ static dispatch_once_t s_registeredChunkOnce;
     dispatch_once(&s_registeredChunkOnce, ^{
         s_registeredChunkClasses = [[NSMutableDictionary alloc] init];
     });
-    [s_registeredChunkClasses setObject:chunkClass forKey:chunkType];
+    NSMutableArray* classesForType = [s_registeredChunkClasses objectForKey:chunkType];
+    if (!classesForType) {
+        classesForType = [[NSMutableArray alloc] init];
+        [s_registeredChunkClasses setObject:classesForType forKey:chunkType];
+    }
+    if (![classesForType containsObject:chunkClass]) {
+        [classesForType addObject:chunkClass];
+    } else {
+        NSLog(@"Duplicate class %@ specified for chunk type '%@'", NSStringFromClass(chunkClass), chunkType);
+    }
 }
 
 @end

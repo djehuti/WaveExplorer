@@ -35,6 +35,11 @@
 
 + (WaveExplorerChunk*) chunkForData:(NSData*)data;
 + (void) registerChunkClasses;
+// If a class wants more info about a chunk than just its type and length before deciding
+// to handle it, it can override this method to examine the data and return NO if it wants
+// to pass the buck. The base class implementation just returns YES.
+// This way you can build multiple classes to handle different variants of a single chunk type.
++ (BOOL) canHandleChunkWithData:(NSData*)data;
 
 // Utility
 + (NSArray*) processChunksInData:(NSData*)data;
