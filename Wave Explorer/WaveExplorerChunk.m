@@ -114,7 +114,7 @@ static dispatch_once_t s_registeredChunkOnce;
 
 #pragma mark Lifecycle
 
-- (id)init
+- (id) init
 {
     static unsigned char s_emptyChunkData[kWaveExplorerChunkHeaderSize] = { 'R', 'I', 'F', 'F', 0, 0, 0, 0 };
 
