@@ -22,7 +22,9 @@
 
 + (void) initialize
 {
-    [WaveExplorerChunk registerChunkClasses];
+    if (self == [WaveExplorerDocument class]) {
+        [WaveExplorerChunk registerChunkClasses];
+    }
 }
 
 - (void) dealloc
