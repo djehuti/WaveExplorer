@@ -109,7 +109,7 @@ static dispatch_once_t s_registeredChunkOnce;
 
 - (NSString*) moreInfo
 {
-    return @"RIFF Chunk";
+    return NSLocalizedString(@"RIFF Chunk", @"RIFF Chunk description");
 }
 
 #pragma mark Lifecycle
@@ -236,6 +236,11 @@ static dispatch_once_t s_registeredChunkOnce;
 + (BOOL) canHandleChunkWithData:(NSData*)data
 {
     return YES;
+}
+
++ (NSString*) nibName
+{
+    return @"WaveExplorerChunk";
 }
 
 #pragma mark - Utility

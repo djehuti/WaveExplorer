@@ -23,6 +23,9 @@
 		F202138D15AFCA1200354C69 /* WaveExplorerListInfoChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = F202138C15AFCA1100354C69 /* WaveExplorerListInfoChunk.m */; };
 		F202139015AFCBB700354C69 /* WaveExplorerStringChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = F202138F15AFCBB600354C69 /* WaveExplorerStringChunk.m */; };
 		F28CF70415B1BEDD000E169F /* WaveExplorerDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F28CF70315B1BEDD000E169F /* WaveExplorerDocumentWindowController.m */; };
+		F28CF70915B1C8F1000E169F /* WaveExplorerChunkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F28CF70715B1C8F1000E169F /* WaveExplorerChunkDetailViewController.m */; };
+		F28CF70B15B1D27C000E169F /* WaveExplorerFmtChunk.xib in Resources */ = {isa = PBXBuildFile; fileRef = F28CF70D15B1D27C000E169F /* WaveExplorerFmtChunk.xib */; };
+		F28CF71015B1DD19000E169F /* WaveExplorerChunk.xib in Resources */ = {isa = PBXBuildFile; fileRef = F28CF70E15B1DD19000E169F /* WaveExplorerChunk.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,10 @@
 		F27768EB15B0BF1100572363 /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
 		F28CF70215B1BEDD000E169F /* WaveExplorerDocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveExplorerDocumentWindowController.h; sourceTree = "<group>"; };
 		F28CF70315B1BEDD000E169F /* WaveExplorerDocumentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveExplorerDocumentWindowController.m; sourceTree = "<group>"; };
+		F28CF70615B1C8F1000E169F /* WaveExplorerChunkDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveExplorerChunkDetailViewController.h; sourceTree = "<group>"; };
+		F28CF70715B1C8F1000E169F /* WaveExplorerChunkDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveExplorerChunkDetailViewController.m; sourceTree = "<group>"; };
+		F28CF70C15B1D27C000E169F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WaveExplorerFmtChunk.xib; sourceTree = "<group>"; };
+		F28CF70F15B1DD19000E169F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WaveExplorerChunk.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,8 +167,10 @@
 		F202133515AF8A7B00354C69 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F202132515AF88DA00354C69 /* WaveExplorerDocument.xib */,
 				F202132815AF88DA00354C69 /* MainMenu.xib */,
+				F202132515AF88DA00354C69 /* WaveExplorerDocument.xib */,
+				F28CF70E15B1DD19000E169F /* WaveExplorerChunk.xib */,
+				F28CF70D15B1D27C000E169F /* WaveExplorerFmtChunk.xib */,
 				F202133915AF92C000354C69 /* WaveExplorerChunkClasses.plist */,
 			);
 			name = Resources;
@@ -174,6 +183,8 @@
 				F202134315AFACD100354C69 /* WaveExplorerAppDelegate.m */,
 				F28CF70215B1BEDD000E169F /* WaveExplorerDocumentWindowController.h */,
 				F28CF70315B1BEDD000E169F /* WaveExplorerDocumentWindowController.m */,
+				F28CF70615B1C8F1000E169F /* WaveExplorerChunkDetailViewController.h */,
+				F28CF70715B1C8F1000E169F /* WaveExplorerChunkDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -232,6 +243,8 @@
 				F202132715AF88DA00354C69 /* WaveExplorerDocument.xib in Resources */,
 				F202132A15AF88DA00354C69 /* MainMenu.xib in Resources */,
 				F202133A15AF92C000354C69 /* WaveExplorerChunkClasses.plist in Resources */,
+				F28CF70B15B1D27C000E169F /* WaveExplorerFmtChunk.xib in Resources */,
+				F28CF71015B1DD19000E169F /* WaveExplorerChunk.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +266,7 @@
 				F202138D15AFCA1200354C69 /* WaveExplorerListInfoChunk.m in Sources */,
 				F202139015AFCBB700354C69 /* WaveExplorerStringChunk.m in Sources */,
 				F28CF70415B1BEDD000E169F /* WaveExplorerDocumentWindowController.m in Sources */,
+				F28CF70915B1C8F1000E169F /* WaveExplorerChunkDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +295,22 @@
 				F202132915AF88DA00354C69 /* en */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		F28CF70D15B1D27C000E169F /* WaveExplorerFmtChunk.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F28CF70C15B1D27C000E169F /* en */,
+			);
+			name = WaveExplorerFmtChunk.xib;
+			sourceTree = "<group>";
+		};
+		F28CF70E15B1DD19000E169F /* WaveExplorerChunk.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F28CF70F15B1DD19000E169F /* en */,
+			);
+			name = WaveExplorerChunk.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

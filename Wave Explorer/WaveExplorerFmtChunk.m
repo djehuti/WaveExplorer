@@ -40,6 +40,32 @@
 @synthesize bitsPerSample = mBitsPerSample;
 @synthesize extraFormatBytes = mExtraFormatBytes;
 
+- (NSString*) compressionDescription
+{
+    static NSDictionary* s_compressionCodeDescriptions = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        s_compressionCodeDescriptions = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                         NSLocalizedString(@"Unspecified", @"Unspecified audio codec"), [NSNumber numberWithInt:0],
+                                         NSLocalizedString(@"Linear PCM", @"PCM audio codec"), [NSNumber numberWithInt:1],
+                                         NSLocalizedString(@"Microsoft ADPCM", @"ADPCM audio codec"), [NSNumber numberWithInt:2],
+                                         NSLocalizedString(@"a-law", @"a-law audio codec"), [NSNumber numberWithInt:6],
+                                         NSLocalizedString(@"u-law", @"u-law audio codec"), [NSNumber numberWithInt:7],
+                                         NSLocalizedString(@"IMA ADPCM", @"IMA audio codec"), [NSNumber numberWithInt:17],
+                                         NSLocalizedString(@"Yamaha ADPCM", @"Yamaha ADPCM codec"), [NSNumber numberWithInt:20],
+                                         NSLocalizedString(@"GSM 6.10", @"GSM 6.10 audio codec"), [NSNumber numberWithInt:49],
+                                         NSLocalizedString(@"ITU G.721 ADPCM", @"ITU G.721 ADPCM audio codec"), [NSNumber numberWithInt:64],
+                                         NSLocalizedString(@"MPEG", @"MPEG audio codec"), [NSNumber numberWithInt:80],
+                                         NSLocalizedString(@"Experimental", @"Experimental audio codec"), [NSNumber numberWithInt:0xffff],
+                                         nil];
+    });
+    NSString* description = [s_compressionCodeDescriptions objectForKey:[NSNumber numberWithInt:(int)self.compressionCode]];
+    if (description == nil) {
+        description = NSLocalizedString(@"Unknown", @"Unknown audio codec");
+    }
+    return description;
+}
+
 - (id) initWithData:(NSData*)data
 {
     if ((self = [super initWithData:data])) {
@@ -60,12 +86,19 @@
     return NSUIntegerMax;
 }
 
++ (NSString*) nibName
+{
+    return @"WaveExplorerFmtChunk";
+}
+
 - (NSString*) moreInfo
 {
-    return [NSString stringWithFormat:@"%u channels, %u bits, sample rate %lu, data rate %lu, compression code %u",
+    NSString* formatString = NSLocalizedString(@"%1$u channels, %2$u bits, sample rate %3$u, data rate %4$u, codec %5$@",
+                                               @"fmt chunk summary description format specifier");
+    return [NSString localizedStringWithFormat:formatString,
             (unsigned int) mNumChannels, (unsigned int) mBitsPerSample,
-            (unsigned long) mSampleRate, (unsigned long) mAverageBytesPerSecond,
-            (unsigned int) mCompressionCode];
+            (unsigned int) mSampleRate, (unsigned int) mAverageBytesPerSecond,
+            [self compressionDescription]];
 }
 
 @end

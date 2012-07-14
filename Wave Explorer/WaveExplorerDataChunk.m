@@ -19,7 +19,7 @@
 
 - (NSString*) moreInfo
 {
-    return @"Audio Data Chunk";
+    return NSLocalizedString(@"Audio Data Chunk", @"Audio data chunk description");
 }
 
 @end

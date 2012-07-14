@@ -13,6 +13,7 @@
 @interface WaveExplorerFmtChunk : WaveExplorerChunk
 
 @property (nonatomic, readwrite, assign) uint16_t compressionCode;
+@property (nonatomic, readonly, retain) NSString* compressionDescription;
 @property (nonatomic, readwrite, assign) uint16_t numChannels;
 @property (nonatomic, readwrite, assign) uint32_t sampleRate;
 @property (nonatomic, readwrite, assign) uint32_t averageBytesPerSecond;

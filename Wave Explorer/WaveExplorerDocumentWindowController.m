@@ -10,11 +10,15 @@
 #import "WaveExplorerDocumentWindowController.h"
 #import "WaveExplorerDocument.h"
 #import "WaveExplorerChunk.h"
+#import "WaveExplorerChunkDetailViewController.h"
 
 
 @interface WaveExplorerDocumentWindowController ()
 {
     WaveExplorerDocument* mDocument;
+    NSOutlineView* mOutlineView;
+    NSView* mDetailView;
+    NSView* mChunkDetailView;
 }
 
 @end
@@ -23,6 +27,27 @@
 @implementation WaveExplorerDocumentWindowController
 
 @synthesize document = mDocument;
+@synthesize outlineView = mOutlineView;
+@synthesize detailView = mDetailView;
+
+- (void) dealloc
+{
+    [mOutlineView release];
+    [mDetailView release];
+    [mChunkDetailView release];
+    [super dealloc];
+}
+
+- (WaveExplorerChunk*) selectedChunk
+{
+    WaveExplorerChunk* selectedChunk = nil;
+    NSInteger selectedRow = [mOutlineView selectedRow];
+    if (selectedRow >= 0) {
+        selectedChunk = (WaveExplorerChunk*)[mOutlineView itemAtRow:selectedRow];
+    }
+    return selectedChunk;
+}
+
 
 #pragma mark - NSOutlineViewDataSource
 
@@ -55,6 +80,35 @@
         result = [(WaveExplorerChunk*)item moreInfo];
     }
     return result;
+}
+
+
+#pragma mark - NSOutlineViewDelegate
+
+- (void) outlineViewSelectionDidChange:(NSNotification*)notification
+{
+    [mChunkDetailView removeFromSuperview];
+    [mChunkDetailView release];
+    mChunkDetailView = nil;
+    WaveExplorerChunk* selectedChunk = self.selectedChunk;
+    if (selectedChunk) {
+        WaveExplorerChunkDetailViewController* chunkDetailVC = [[WaveExplorerChunkDetailViewController alloc] initWithChunk:selectedChunk];
+        mChunkDetailView = [chunkDetailVC.view retain];
+        mChunkDetailView.frame = mDetailView.bounds;
+        [mDetailView addSubview:mChunkDetailView];
+        [chunkDetailVC release];
+    }
+}
+
+
+#pragma mark - NSSplitViewDelegate
+
+- (void) splitViewDidResizeSubviews:(NSNotification*)notification
+{
+    // Shouldn't the "autoresizes subviews" checkbox in IB, which is checked, accomplish this?
+    if (mChunkDetailView) {
+        mChunkDetailView.frame = mDetailView.bounds;
+    }
 }
 
 @end

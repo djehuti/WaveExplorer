@@ -19,7 +19,7 @@
 
 - (NSString*) moreInfo
 {
-    return @"(no details available)";
+    return NSLocalizedString(@"(no details available)", @"unknown chunk description");
 }
 
 @end

@@ -40,6 +40,11 @@
 // to pass the buck. The base class implementation just returns YES.
 // This way you can build multiple classes to handle different variants of a single chunk type.
 + (BOOL) canHandleChunkWithData:(NSData*)data;
+// The nib name for the chunk detail view. Base class returns "WaveExplorerChunk".
+// If you override this, you should return your class name.
+// But not as NSClassFromString([self class]) because that will break subclasses that
+// don't have their own nibs. Do it as a string literal.
++ (NSString*) nibName;
 
 // Utility
 + (NSArray*) processChunksInData:(NSData*)data;
