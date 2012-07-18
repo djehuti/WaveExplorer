@@ -45,7 +45,7 @@
 		F28CF70715B1C8F1000E169F /* WaveExplorerChunkDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveExplorerChunkDetailViewController.m; sourceTree = "<group>"; };
 		F28CF70C15B1D27C000E169F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WaveExplorerFmtChunk.xib; sourceTree = "<group>"; };
 		F28CF70F15B1DD19000E169F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WaveExplorerChunk.xib; sourceTree = "<group>"; };
-		F2EC845415B652050069145A /* WaveTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WaveTools.framework; sourceTree = "<group>"; };
+		F2EC845415B652050069145A /* WaveTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WaveTools.framework; path = /Library/Frameworks/WaveTools.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
