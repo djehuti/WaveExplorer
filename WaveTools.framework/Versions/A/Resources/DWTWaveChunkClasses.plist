@@ -6,7 +6,7 @@
 	<string>DWTWaveChunk</string>
 	<key>data</key>
 	<string>DWTWaveDataChunk</string>
-	<key>fmt</key>
+	<key>fmt </key>
 	<string>DWTWaveFmtChunk</string>
 	<key>LIST</key>
 	<string>DWTWaveListInfoChunk</string>

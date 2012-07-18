@@ -11,13 +11,13 @@
 
 
 @class WaveExplorerDocument;
-@class WaveExplorerChunk;
+@class DWTWaveChunk;
 
 
 @interface WaveExplorerDocumentWindowController : NSWindowController <NSOutlineViewDataSource, NSOutlineViewDelegate, NSSplitViewDelegate>
 
 @property (nonatomic, readwrite, assign) WaveExplorerDocument* document;
-@property (nonatomic, readonly, retain) WaveExplorerChunk* selectedChunk;
+@property (nonatomic, readonly, retain) DWTWaveChunk* selectedChunk;
 
 @property (nonatomic, readwrite, retain) IBOutlet NSOutlineView* outlineView;
 @property (nonatomic, readwrite, retain) IBOutlet NSView* detailView;

@@ -10,13 +10,13 @@
 #import <Cocoa/Cocoa.h>
 
 
-@class WaveExplorerChunk;
+@class DWTWaveChunk;
 
 
 @interface WaveExplorerChunkDetailViewController : NSViewController
 
-- (id) initWithChunk:(WaveExplorerChunk*)chunk; // DI
+- (id) initWithChunk:(DWTWaveChunk*)chunk; // DI
 
-@property (nonatomic, readonly, assign) WaveExplorerChunk* chunk;
+@property (nonatomic, readonly, assign) DWTWaveChunk* chunk;
 
 @end

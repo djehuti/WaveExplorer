@@ -7,13 +7,21 @@
 //
 
 
+#import <WaveTools/WaveTools.h>
+
 #import "WaveExplorerChunkDetailViewController.h"
-#import "WaveExplorerChunk.h"
+
+
+@interface DWTWaveChunk (ChunkNibAdditions)
+
++ (NSString*) nibName;
+
+@end
 
 
 @interface WaveExplorerChunkDetailViewController ()
 {
-    WaveExplorerChunk* mChunk;
+    DWTWaveChunk* mChunk;
 }
 @end
 
@@ -22,7 +30,7 @@
 
 @synthesize chunk = mChunk;
 
-- (id) initWithChunk:(WaveExplorerChunk*)chunk
+- (id) initWithChunk:(DWTWaveChunk*)chunk
 {
     if ((self = [super initWithNibName:[[chunk class] nibName] bundle:nil])) {
         mChunk = chunk; // Not retained.
@@ -37,6 +45,24 @@
     [self release];
     self = nil;
     return self;
+}
+
+@end
+
+@implementation DWTWaveChunk (ChunkNibAdditions)
+
++ (NSString*) nibName
+{
+    return @"WaveExplorerChunk";
+}
+
+@end
+
+@implementation DWTWaveFmtChunk (ChunkNibAdditions)
+
++ (NSString*) nibName
+{
+    return @"WaveExplorerFmtChunk";
 }
 
 @end

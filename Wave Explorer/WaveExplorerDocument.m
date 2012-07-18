@@ -7,14 +7,15 @@
 //
 
 
+#import <WaveTools/WaveTools.h>
+
 #import "WaveExplorerDocument.h"
-#import "WaveExplorerChunk.h"
 #import "WaveExplorerDocumentWindowController.h"
 
 
 @interface WaveExplorerDocument ()
 {
-    WaveExplorerChunk* mRiffChunk;
+    DWTWaveChunk* mRiffChunk;
 }
 @end
 
@@ -26,7 +27,7 @@
 + (void) initialize
 {
     if (self == [WaveExplorerDocument class]) {
-        [WaveExplorerChunk registerChunkClasses];
+        [DWTWaveChunk registerChunkClasses];
     }
 }
 
@@ -57,9 +58,9 @@
     BOOL result = NO;
     [mRiffChunk release];
     mRiffChunk = nil;
-    NSArray* chunks = [[WaveExplorerChunk class] processChunksInData:data];
+    NSArray* chunks = [[DWTWaveChunk class] processChunksInData:data];
     if ([chunks count] == 1) {
-        WaveExplorerChunk* firstChunk = [chunks objectAtIndex:0];
+        DWTWaveChunk* firstChunk = [chunks objectAtIndex:0];
         if ([firstChunk.chunkID isEqualToString:@"RIFF"]) {
             mRiffChunk = [firstChunk retain];
             result = YES;

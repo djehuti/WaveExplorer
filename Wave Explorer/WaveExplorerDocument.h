@@ -10,11 +10,11 @@
 #import <Cocoa/Cocoa.h>
 
 
-@class WaveExplorerChunk;
+@class DWTWaveChunk;
 
 
 @interface WaveExplorerDocument : NSDocument
 
-@property (nonatomic, readwrite, retain) WaveExplorerChunk* riffChunk;
+@property (nonatomic, readwrite, retain) DWTWaveChunk* riffChunk;
 
 @end

@@ -7,9 +7,10 @@
 //
 
 
+#import <WaveTools/WaveTools.h>
+
 #import "WaveExplorerDocumentWindowController.h"
 #import "WaveExplorerDocument.h"
-#import "WaveExplorerChunk.h"
 #import "WaveExplorerChunkDetailViewController.h"
 
 
@@ -38,12 +39,12 @@
     [super dealloc];
 }
 
-- (WaveExplorerChunk*) selectedChunk
+- (DWTWaveChunk*) selectedChunk
 {
-    WaveExplorerChunk* selectedChunk = nil;
+    DWTWaveChunk* selectedChunk = nil;
     NSInteger selectedRow = [mOutlineView selectedRow];
     if (selectedRow >= 0) {
-        selectedChunk = (WaveExplorerChunk*)[mOutlineView itemAtRow:selectedRow];
+        selectedChunk = (DWTWaveChunk*)[mOutlineView itemAtRow:selectedRow];
     }
     return selectedChunk;
 }
@@ -53,17 +54,17 @@
 
 - (NSInteger) outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item
 {
-    return (item == nil) ? 1 : (NSInteger)[(WaveExplorerChunk*)item countOfSubchunks];
+    return (item == nil) ? 1 : (NSInteger)[(DWTWaveChunk*)item countOfSubchunks];
 }
 
 - (BOOL) outlineView:(NSOutlineView*)outlineView isItemExpandable:(id)item
 {
-    return (item == nil) ? YES : ([(WaveExplorerChunk*)item countOfSubchunks] > 0);
+    return (item == nil) ? YES : ([(DWTWaveChunk*)item countOfSubchunks] > 0);
 }
 
 - (id) outlineView:(NSOutlineView*)outlineView child:(NSInteger)index ofItem:(id)item
 {
-    return (item == nil) ? mDocument.riffChunk : [(WaveExplorerChunk*)item objectInSubchunksAtIndex:(NSUInteger)index];
+    return (item == nil) ? mDocument.riffChunk : [(DWTWaveChunk*)item objectInSubchunksAtIndex:(NSUInteger)index];
 }
 
 - (id) outlineView:(NSOutlineView*)outlineView objectValueForTableColumn:(NSTableColumn*)tableColumn byItem:(id)item
@@ -71,13 +72,13 @@
     if (item == nil) item = mDocument.riffChunk;
     id result = nil;
     if ([[tableColumn identifier] isEqualToString:@"Type"]) {
-        result = [(WaveExplorerChunk*)item chunkID];
+        result = [(DWTWaveChunk*)item chunkID];
     }
     else if ([[tableColumn identifier] isEqualToString:@"Size"]) {
-        result = [NSNumber numberWithUnsignedInteger:[(WaveExplorerChunk*)item chunkDataSize]];
+        result = [NSNumber numberWithUnsignedInteger:[(DWTWaveChunk*)item chunkDataSize]];
     }
     else if ([[tableColumn identifier] isEqualToString:@"More"]) {
-        result = [(WaveExplorerChunk*)item moreInfo];
+        result = [(DWTWaveChunk*)item moreInfo];
     }
     return result;
 }
@@ -90,7 +91,7 @@
     [mChunkDetailView removeFromSuperview];
     [mChunkDetailView release];
     mChunkDetailView = nil;
-    WaveExplorerChunk* selectedChunk = self.selectedChunk;
+    DWTWaveChunk* selectedChunk = self.selectedChunk;
     if (selectedChunk) {
         WaveExplorerChunkDetailViewController* chunkDetailVC = [[WaveExplorerChunkDetailViewController alloc] initWithChunk:selectedChunk];
         mChunkDetailView = [chunkDetailVC.view retain];
