@@ -38,7 +38,7 @@
 		F202133015AF88EF00354C69 /* Wave Explorer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Wave Explorer.entitlements"; sourceTree = "<group>"; };
 		F202134215AFACD100354C69 /* WaveExplorerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveExplorerAppDelegate.h; sourceTree = "<group>"; };
 		F202134315AFACD100354C69 /* WaveExplorerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveExplorerAppDelegate.m; sourceTree = "<group>"; };
-		F27768EB15B0BF1100572363 /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
+		F28A6A1C15B661FD00B4FFD0 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = SOURCE_ROOT; };
 		F28CF70215B1BEDD000E169F /* WaveExplorerDocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveExplorerDocumentWindowController.h; sourceTree = "<group>"; };
 		F28CF70315B1BEDD000E169F /* WaveExplorerDocumentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveExplorerDocumentWindowController.m; sourceTree = "<group>"; };
 		F28CF70615B1C8F1000E169F /* WaveExplorerChunkDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveExplorerChunkDetailViewController.h; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		F202131615AF88DA00354C69 /* Wave Explorer */ = {
 			isa = PBXGroup;
 			children = (
-				F27768EB15B0BF1100572363 /* Notes.rtf */,
+				F28A6A1C15B661FD00B4FFD0 /* README.markdown */,
 				F202133415AF8A5500354C69 /* Model */,
 				F202134115AFACB300354C69 /* Controller */,
 				F202133515AF8A7B00354C69 /* Resources */,
