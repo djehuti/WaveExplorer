@@ -14,12 +14,26 @@
 		F202132715AF88DA00354C69 /* WaveExplorerDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = F202132515AF88DA00354C69 /* WaveExplorerDocument.xib */; };
 		F202132A15AF88DA00354C69 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F202132815AF88DA00354C69 /* MainMenu.xib */; };
 		F202134415AFACD100354C69 /* WaveExplorerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F202134315AFACD100354C69 /* WaveExplorerAppDelegate.m */; };
+		F26B869315BA1F9200844298 /* WaveTools.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F2EC845415B652050069145A /* WaveTools.framework */; };
 		F28CF70415B1BEDD000E169F /* WaveExplorerDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F28CF70315B1BEDD000E169F /* WaveExplorerDocumentWindowController.m */; };
 		F28CF70915B1C8F1000E169F /* WaveExplorerChunkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F28CF70715B1C8F1000E169F /* WaveExplorerChunkDetailViewController.m */; };
 		F28CF70B15B1D27C000E169F /* WaveExplorerFmtChunk.xib in Resources */ = {isa = PBXBuildFile; fileRef = F28CF70D15B1D27C000E169F /* WaveExplorerFmtChunk.xib */; };
 		F28CF71015B1DD19000E169F /* WaveExplorerChunk.xib in Resources */ = {isa = PBXBuildFile; fileRef = F28CF70E15B1DD19000E169F /* WaveExplorerChunk.xib */; };
 		F2EC845515B652050069145A /* WaveTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2EC845415B652050069145A /* WaveTools.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F26B869215BA1F8B00844298 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F26B869315BA1F9200844298 /* WaveTools.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F202130C15AF88DA00354C69 /* Wave Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wave Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +179,7 @@
 				F202130815AF88DA00354C69 /* Sources */,
 				F202130915AF88DA00354C69 /* Frameworks */,
 				F202130A15AF88DA00354C69 /* Resources */,
+				F26B869215BA1F8B00844298 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -331,6 +346,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wave Explorer/Wave Explorer-Prefix.pch";
 				INFOPLIST_FILE = "Wave Explorer/Wave Explorer-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -348,6 +364,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wave Explorer/Wave Explorer-Prefix.pch";
 				INFOPLIST_FILE = "Wave Explorer/Wave Explorer-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
