@@ -15,6 +15,8 @@
 		F202132A15AF88DA00354C69 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F202132815AF88DA00354C69 /* MainMenu.xib */; };
 		F202134415AFACD100354C69 /* WaveExplorerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F202134315AFACD100354C69 /* WaveExplorerAppDelegate.m */; };
 		F26B869315BA1F9200844298 /* WaveTools.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F2EC845415B652050069145A /* WaveTools.framework */; };
+		F27BDDCD15BBAE0100AF31E6 /* WaveExplorerCueChunk.xib in Resources */ = {isa = PBXBuildFile; fileRef = F27BDDCB15BBAE0100AF31E6 /* WaveExplorerCueChunk.xib */; };
+		F27BDDD515BBBF0F00AF31E6 /* WaveExplorerPlaylistChunk.xib in Resources */ = {isa = PBXBuildFile; fileRef = F27BDDD315BBBF0F00AF31E6 /* WaveExplorerPlaylistChunk.xib */; };
 		F28CF70415B1BEDD000E169F /* WaveExplorerDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F28CF70315B1BEDD000E169F /* WaveExplorerDocumentWindowController.m */; };
 		F28CF70915B1C8F1000E169F /* WaveExplorerChunkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F28CF70715B1C8F1000E169F /* WaveExplorerChunkDetailViewController.m */; };
 		F28CF70B15B1D27C000E169F /* WaveExplorerFmtChunk.xib in Resources */ = {isa = PBXBuildFile; fileRef = F28CF70D15B1D27C000E169F /* WaveExplorerFmtChunk.xib */; };
@@ -52,6 +54,8 @@
 		F202133015AF88EF00354C69 /* Wave Explorer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Wave Explorer.entitlements"; sourceTree = "<group>"; };
 		F202134215AFACD100354C69 /* WaveExplorerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveExplorerAppDelegate.h; sourceTree = "<group>"; };
 		F202134315AFACD100354C69 /* WaveExplorerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveExplorerAppDelegate.m; sourceTree = "<group>"; };
+		F27BDDCC15BBAE0100AF31E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WaveExplorerCueChunk.xib; sourceTree = "<group>"; };
+		F27BDDD415BBBF0F00AF31E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WaveExplorerPlaylistChunk.xib; sourceTree = "<group>"; };
 		F28A6A1C15B661FD00B4FFD0 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = SOURCE_ROOT; };
 		F28CF70215B1BEDD000E169F /* WaveExplorerDocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveExplorerDocumentWindowController.h; sourceTree = "<group>"; };
 		F28CF70315B1BEDD000E169F /* WaveExplorerDocumentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveExplorerDocumentWindowController.m; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 				F202132515AF88DA00354C69 /* WaveExplorerDocument.xib */,
 				F28CF70E15B1DD19000E169F /* WaveExplorerChunk.xib */,
 				F28CF70D15B1D27C000E169F /* WaveExplorerFmtChunk.xib */,
+				F27BDDCB15BBAE0100AF31E6 /* WaveExplorerCueChunk.xib */,
+				F27BDDD315BBBF0F00AF31E6 /* WaveExplorerPlaylistChunk.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -225,6 +231,8 @@
 				F202132A15AF88DA00354C69 /* MainMenu.xib in Resources */,
 				F28CF70B15B1D27C000E169F /* WaveExplorerFmtChunk.xib in Resources */,
 				F28CF71015B1DD19000E169F /* WaveExplorerChunk.xib in Resources */,
+				F27BDDCD15BBAE0100AF31E6 /* WaveExplorerCueChunk.xib in Resources */,
+				F27BDDD515BBBF0F00AF31E6 /* WaveExplorerPlaylistChunk.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +278,22 @@
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
+		F27BDDCB15BBAE0100AF31E6 /* WaveExplorerCueChunk.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F27BDDCC15BBAE0100AF31E6 /* en */,
+			);
+			name = WaveExplorerCueChunk.xib;
+			sourceTree = "<group>";
+		};
+		F27BDDD315BBBF0F00AF31E6 /* WaveExplorerPlaylistChunk.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F27BDDD415BBBF0F00AF31E6 /* en */,
+			);
+			name = WaveExplorerPlaylistChunk.xib;
+			sourceTree = "<group>";
+		};
 		F28CF70D15B1D27C000E169F /* WaveExplorerFmtChunk.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,8 +316,9 @@
 		F202132B15AF88DA00354C69 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Ben Cox";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -311,6 +336,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -318,8 +345,9 @@
 		F202132C15AF88DA00354C69 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Ben Cox";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -330,6 +358,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PROVISIONING_PROFILE = "";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -338,10 +368,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Wave Explorer/Wave Explorer.entitlements";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					/Library/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wave Explorer/Wave Explorer-Prefix.pch";
@@ -356,10 +386,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Wave Explorer/Wave Explorer.entitlements";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					/Library/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wave Explorer/Wave Explorer-Prefix.pch";

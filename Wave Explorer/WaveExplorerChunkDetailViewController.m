@@ -47,6 +47,17 @@
     return self;
 }
 
+- (NSAttributedString*) dataDump
+{
+    NSString* dumpString = [self.chunk dataDump];
+    NSFont* font = [NSFont fontWithName:@"Menlo" size:12.0];
+    NSDictionary* attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                               font, NSFontAttributeName,
+                               nil];
+    NSAttributedString* dataDump = [[NSAttributedString alloc] initWithString:dumpString attributes:attributes];
+    return [dataDump autorelease];
+}
+
 @end
 
 @implementation DWTWaveChunk (ChunkNibAdditions)
@@ -63,6 +74,24 @@
 + (NSString*) nibName
 {
     return @"WaveExplorerFmtChunk";
+}
+
+@end
+
+@implementation DWTWaveCueChunk (ChunkNibAdditions)
+
++ (NSString*) nibName
+{
+    return @"WaveExplorerCueChunk";
+}
+
+@end
+
+@implementation DWTWavePlaylistChunk (ChunkNibAdditions)
+
++ (NSString*) nibName
+{
+    return @"WaveExplorerPlaylistChunk";
 }
 
 @end

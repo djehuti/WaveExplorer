@@ -19,4 +19,6 @@
 
 @property (nonatomic, readonly, assign) DWTWaveChunk* chunk;
 
+- (NSAttributedString*) dataDump;
+
 @end
