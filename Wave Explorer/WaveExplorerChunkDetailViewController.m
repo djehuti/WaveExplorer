@@ -95,3 +95,12 @@
 }
 
 @end
+
+@implementation DWTWaveLabeledTextChunk (ChunkNibAdditions)
+
++ (NSString*) nibName
+{
+    return @"WaveExplorerLabeledTextChunk";
+}
+
+@end
