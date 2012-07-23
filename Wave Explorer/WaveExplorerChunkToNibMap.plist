@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DWTWaveFmtChunk</key>
+	<string>WaveExplorerFmtChunk</string>
+	<key>DWTWaveCueChunk</key>
+	<string>WaveExplorerCueChunk</string>
+	<key>DWTWavePlaylistChunk</key>
+	<string>WaveExplorerPlaylistChunk</string>
+	<key>DWTWaveLabeledTextChunk</key>
+	<string>WaveExplorerLabeledTextChunk</string>
+</dict>
+</plist>

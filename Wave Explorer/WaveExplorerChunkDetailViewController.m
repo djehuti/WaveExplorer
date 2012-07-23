@@ -12,13 +12,6 @@
 #import "WaveExplorerChunkDetailViewController.h"
 
 
-@interface DWTWaveChunk (ChunkNibAdditions)
-
-+ (NSString*) nibName;
-
-@end
-
-
 @interface WaveExplorerChunkDetailViewController ()
 {
     DWTWaveChunk* mChunk;
@@ -32,7 +25,18 @@
 
 - (id) initWithChunk:(DWTWaveChunk*)chunk
 {
-    if ((self = [super initWithNibName:[[chunk class] nibName] bundle:nil])) {
+    static NSDictionary* s_chunkToNibMap = nil;
+    static dispatch_once_t s_chunkToNibMapOnce;
+    dispatch_once(&s_chunkToNibMapOnce, ^{
+        NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"WaveExplorerChunkToNibMap" ofType:@"plist"];
+        s_chunkToNibMap = [[NSDictionary dictionaryWithContentsOfFile:plistPath] retain];
+    });
+    NSString* chunkClassName = NSStringFromClass([chunk class]);
+    NSString* nibName = [s_chunkToNibMap objectForKey:chunkClassName];
+    if (nibName == nil) {
+        nibName = @"WaveExplorerChunk";
+    }
+    if ((self = [super initWithNibName:nibName bundle:nil])) {
         mChunk = chunk; // Not retained.
     }
     return self;
@@ -56,51 +60,6 @@
                                nil];
     NSAttributedString* dataDump = [[NSAttributedString alloc] initWithString:dumpString attributes:attributes];
     return [dataDump autorelease];
-}
-
-@end
-
-@implementation DWTWaveChunk (ChunkNibAdditions)
-
-+ (NSString*) nibName
-{
-    return @"WaveExplorerChunk";
-}
-
-@end
-
-@implementation DWTWaveFmtChunk (ChunkNibAdditions)
-
-+ (NSString*) nibName
-{
-    return @"WaveExplorerFmtChunk";
-}
-
-@end
-
-@implementation DWTWaveCueChunk (ChunkNibAdditions)
-
-+ (NSString*) nibName
-{
-    return @"WaveExplorerCueChunk";
-}
-
-@end
-
-@implementation DWTWavePlaylistChunk (ChunkNibAdditions)
-
-+ (NSString*) nibName
-{
-    return @"WaveExplorerPlaylistChunk";
-}
-
-@end
-
-@implementation DWTWaveLabeledTextChunk (ChunkNibAdditions)
-
-+ (NSString*) nibName
-{
-    return @"WaveExplorerLabeledTextChunk";
 }
 
 @end
