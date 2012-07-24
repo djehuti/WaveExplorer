@@ -42,7 +42,7 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSScrollView" id="666101547">
 						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">18</int>
+						<int key="NSvFlags">274</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="NSClipView" id="903483065">
 								<reference key="NSNextResponder" ref="666101547"/>
@@ -50,7 +50,7 @@
 								<array class="NSMutableArray" key="NSSubviews">
 									<object class="NSTextView" id="24149294">
 										<reference key="NSNextResponder" ref="903483065"/>
-										<int key="NSvFlags">2358</int>
+										<int key="NSvFlags">2322</int>
 										<string key="NSFrameSize">{292, 112}</string>
 										<reference key="NSSuperview" ref="903483065"/>
 										<reference key="NSWindow"/>
@@ -75,7 +75,7 @@
 											<int key="NSTCFlags">1</int>
 										</object>
 										<object class="NSTextViewSharedData" key="NSSharedData">
-											<int key="NSFlags">10497</int>
+											<int key="NSFlags">1073744129</int>
 											<int key="NSTextCheckingTypes">0</int>
 											<nil key="NSMarkedAttributes"/>
 											<object class="NSColor" key="NSBackgroundColor" id="767239450">
@@ -115,10 +115,16 @@
 												<integer value="1" key="NSUnderline"/>
 											</dictionary>
 											<nil key="NSDefaultParagraphStyle"/>
-											<nil key="NSTextFinder"/>
-											<int key="NSPreferredTextFinderStyle">1</int>
+											<object class="NSTextFinder" key="NSTextFinder">
+												<reference key="NSTextFinderClient" ref="24149294"/>
+												<reference key="NSFindBarContainer" ref="666101547"/>
+												<int key="NSTextFinderStyle">2</int>
+												<bool key="NSIncrementalSearchingEnabled">YES</bool>
+												<bool key="NSIncrementalSearchingShouldDimContentView">YES</bool>
+											</object>
+											<int key="NSPreferredTextFinderStyle">2</int>
 										</object>
-										<int key="NSTVFlags">6</int>
+										<int key="NSTVFlags">7</int>
 										<string key="NSMaxSize">{800, 10000000}</string>
 										<nil key="NSDelegate"/>
 									</object>
@@ -299,8 +305,8 @@ wGw</bytes>
 							</object>
 							<object class="NSScroller" id="32710913">
 								<reference key="NSNextResponder" ref="666101547"/>
-								<int key="NSvFlags">-2147483392</int>
-								<string key="NSFrame">{{-100, -100}, {87, 18}}</string>
+								<int key="NSvFlags">256</int>
+								<string key="NSFrame">{{1, 97}, {292, 16}}</string>
 								<reference key="NSSuperview" ref="666101547"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="903483065"/>
@@ -318,7 +324,7 @@ wGw</bytes>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="32710913"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<int key="NSsFlags">133138</int>
+						<int key="NSsFlags">133170</int>
 						<reference key="NSVScroller" ref="40096390"/>
 						<reference key="NSHScroller" ref="32710913"/>
 						<reference key="NSContentView" ref="903483065"/>
@@ -739,6 +745,7 @@ wGw</bytes>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="115.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="116.CustomClassName">WaveExplorerDumpTextView</string>
 				<string key="116.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="117.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="118.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -788,6 +795,14 @@ wGw</bytes>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/WaveExplorerChunkDetailViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">WaveExplorerDumpTextView</string>
+					<string key="superclassName">NSTextView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/WaveExplorerDumpTextView.h</string>
 					</object>
 				</object>
 			</array>
