@@ -10,5 +10,7 @@
 	<string>WaveExplorerPlaylistChunk</string>
 	<key>DWTWaveLabeledTextChunk</key>
 	<string>WaveExplorerLabeledTextChunk</string>
+	<key>DWTWaveRegnChunk</key>
+	<string>WaveExplorerRegnChunk</string>
 </dict>
 </plist>

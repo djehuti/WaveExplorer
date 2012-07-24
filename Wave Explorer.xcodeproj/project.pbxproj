@@ -19,6 +19,7 @@
 		F27BDDD515BBBF0F00AF31E6 /* WaveExplorerPlaylistChunk.xib in Resources */ = {isa = PBXBuildFile; fileRef = F27BDDD315BBBF0F00AF31E6 /* WaveExplorerPlaylistChunk.xib */; };
 		F27BDDEB15BC81AA00AF31E6 /* WaveExplorerLabeledTextChunk.xib in Resources */ = {isa = PBXBuildFile; fileRef = F27BDDE915BC81AA00AF31E6 /* WaveExplorerLabeledTextChunk.xib */; };
 		F27BDDF515BE21D600AF31E6 /* WaveExplorerDumpTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F27BDDF415BE21D600AF31E6 /* WaveExplorerDumpTextView.m */; };
+		F27BDE0215BE46DA00AF31E6 /* WaveExplorerRegnChunk.xib in Resources */ = {isa = PBXBuildFile; fileRef = F27BDE0015BE46DA00AF31E6 /* WaveExplorerRegnChunk.xib */; };
 		F28B5D4F15BE13A70044D7F1 /* WaveExplorerChunkToNibMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = F28B5D4E15BE13A70044D7F1 /* WaveExplorerChunkToNibMap.plist */; };
 		F28CF70415B1BEDD000E169F /* WaveExplorerDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F28CF70315B1BEDD000E169F /* WaveExplorerDocumentWindowController.m */; };
 		F28CF70915B1C8F1000E169F /* WaveExplorerChunkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F28CF70715B1C8F1000E169F /* WaveExplorerChunkDetailViewController.m */; };
@@ -62,6 +63,7 @@
 		F27BDDEA15BC81AA00AF31E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WaveExplorerLabeledTextChunk.xib; sourceTree = "<group>"; };
 		F27BDDF315BE21D600AF31E6 /* WaveExplorerDumpTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveExplorerDumpTextView.h; sourceTree = "<group>"; };
 		F27BDDF415BE21D600AF31E6 /* WaveExplorerDumpTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveExplorerDumpTextView.m; sourceTree = "<group>"; };
+		F27BDE0115BE46DA00AF31E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WaveExplorerRegnChunk.xib; sourceTree = "<group>"; };
 		F28A6A1C15B661FD00B4FFD0 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = SOURCE_ROOT; };
 		F28B5D4E15BE13A70044D7F1 /* WaveExplorerChunkToNibMap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WaveExplorerChunkToNibMap.plist; sourceTree = "<group>"; };
 		F28CF70215B1BEDD000E169F /* WaveExplorerDocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveExplorerDocumentWindowController.h; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				F28CF70E15B1DD19000E169F /* WaveExplorerChunk.xib */,
 				F28CF70D15B1D27C000E169F /* WaveExplorerFmtChunk.xib */,
 				F27BDDCB15BBAE0100AF31E6 /* WaveExplorerCueChunk.xib */,
+				F27BDE0015BE46DA00AF31E6 /* WaveExplorerRegnChunk.xib */,
 				F27BDDD315BBBF0F00AF31E6 /* WaveExplorerPlaylistChunk.xib */,
 				F27BDDE915BC81AA00AF31E6 /* WaveExplorerLabeledTextChunk.xib */,
 				F28B5D4E15BE13A70044D7F1 /* WaveExplorerChunkToNibMap.plist */,
@@ -254,6 +257,7 @@
 				F27BDDD515BBBF0F00AF31E6 /* WaveExplorerPlaylistChunk.xib in Resources */,
 				F27BDDEB15BC81AA00AF31E6 /* WaveExplorerLabeledTextChunk.xib in Resources */,
 				F28B5D4F15BE13A70044D7F1 /* WaveExplorerChunkToNibMap.plist in Resources */,
+				F27BDE0215BE46DA00AF31E6 /* WaveExplorerRegnChunk.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +326,14 @@
 				F27BDDEA15BC81AA00AF31E6 /* en */,
 			);
 			name = WaveExplorerLabeledTextChunk.xib;
+			sourceTree = "<group>";
+		};
+		F27BDE0015BE46DA00AF31E6 /* WaveExplorerRegnChunk.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F27BDE0115BE46DA00AF31E6 /* en */,
+			);
+			name = WaveExplorerRegnChunk.xib;
 			sourceTree = "<group>";
 		};
 		F28CF70D15B1D27C000E169F /* WaveExplorerFmtChunk.xib */ = {
