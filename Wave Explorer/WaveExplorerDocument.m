@@ -15,14 +15,17 @@
 
 @interface WaveExplorerDocument ()
 {
-    DWTWaveChunk* mRiffChunk;
+    DWTWaveFile* mWaveFile;
 }
 @end
 
 
 @implementation WaveExplorerDocument
 
-@synthesize riffChunk = mRiffChunk;
+- (DWTWaveChunk*) riffChunk
+{
+    return mWaveFile.riffChunk;
+}
 
 + (void) initialize
 {
@@ -33,8 +36,8 @@
 
 - (void) dealloc
 {
-    [mRiffChunk release];
-    mRiffChunk = nil;
+    [mWaveFile release];
+    mWaveFile = nil;
     [super dealloc];
 }
 
@@ -56,16 +59,9 @@
 - (BOOL) readFromData:(NSData*)data ofType:(NSString*)typeName error:(NSError**)outError
 {
     BOOL result = NO;
-    [mRiffChunk release];
-    mRiffChunk = nil;
-    NSArray* chunks = [[DWTWaveChunk class] processChunksInData:data];
-    if ([chunks count] == 1) {
-        DWTWaveChunk* firstChunk = [chunks objectAtIndex:0];
-        if ([firstChunk.chunkID isEqualToString:@"RIFF"]) {
-            mRiffChunk = [firstChunk retain];
-            result = YES;
-        }
-    }
+    [mWaveFile release];
+    mWaveFile = [[DWTWaveFile alloc] initWithData:data];
+    result = (mWaveFile != nil);
     return result;
 }
 

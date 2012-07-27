@@ -15,6 +15,6 @@
 
 @interface WaveExplorerDocument : NSDocument
 
-@property (nonatomic, readwrite, retain) DWTWaveChunk* riffChunk;
+@property (nonatomic, readonly, retain) DWTWaveChunk* riffChunk;
 
 @end
